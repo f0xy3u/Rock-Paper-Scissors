@@ -1,3 +1,4 @@
+function RockPaperScissors() {
 function getComputerChoice(){
 var random = Math.random()
 var CompChoice = undefined
@@ -79,11 +80,6 @@ let playerWin = 0;
 while (playing == true) {
     rounds += 1
     
-    if (rounds == 6) {
-        whoWon()
-        playing = false
-    }
-
     result = oneRound()
 
     if (result == `win`) {
@@ -92,5 +88,9 @@ while (playing == true) {
         computerWin += 1
     }
 
-
+    if (rounds == 5) {
+        whoWon()
+        playing = false
+    }
+}
 }
