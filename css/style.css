@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(24, 24, 24);
+    height: 100vh;
+}
+
+.beforeGame {
+    display: flex;
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 25px;
+}
+
+.beforeGame p {
+    color: white;
+}
+
+.startGame {
+    height: 200px;
+    width: 400px;
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: solid;
+    font-size: 60px;
+    margin: 15px;
+}
+
+.game {
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+}
+
+.result {
+    flex-direction: column;
+    border: solid rgb(131, 131, 131) 2px;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    margin: 3px;
+    font-size: 20px;
+}
+
+.button {
+    height: 60px;
+    width: 120px;
+    font-size: 25px;
+    background-color: rgb(48, 48, 48);
+    border: solid;
+    color: white;
+}
+
+.gameResults {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+}
+
+.ifWin {
+    text-align: center;
+    width: 80%;
+}
+
+.restartDiv {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+    justify-content: center;
+    margin: 40px;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.restartButton {
+    margin-top: 5px;
+    height: 60px;
+    background-color: rgb(48, 48, 48);
+    border: none;
+    color: white;
+    font-size: 25px;
+}
