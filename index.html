@@ -20,12 +20,21 @@
         Choose your weapon!
         <div class="result" style="display:none;">
             <div class="winner"></div>
-            <div class="roundResult"></div>
+            <div class="roundResult">
+                <div class="playerWeaponParent resultParent">
+                    You played:
+                    <div class="playerWeapon"></div>
+                </div>
+                <div class="compWeaponParent resultParent">
+                    Computer played:
+                    <div class="compWeapon"></div>
+                </div>
+            </div>
         </div>
         <div class="buttons">
-            <button class="rock button">Rock</button>
-            <button class="paper button">Paper</button>
-            <button class="scissors button">Scissors</button>
+            <button class="rock button">✊</button>
+            <button class="paper button">✋</button>
+            <button class="scissors button">✌️</button>
         </div>
     </div>
 
@@ -50,6 +59,8 @@ const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
 const scissorsButton = document.querySelector('.scissors')
 const winnerDiv = document.querySelector('.winner')
+const playerWeaponDiv = document.querySelector('.playerWeapon')
+const compWeaponDiv = document.querySelector('.compWeapon')
 const roundResultDiv = document.querySelector('.roundResult')
 const gameResultDiv = document.querySelector('.gameResults')
 const gameWinnerDiv = document.querySelector('.whoWon')
@@ -119,31 +130,43 @@ function oneRound() {
     if (playerSelection == computerSelection) {
         Rounds('tie')
         winnerDiv.innerText = "It's a Tie."
-        roundResultDiv.innerText = ``
+        roundResultDiv.style.display = 'none'
     } else if (playerSelection == `rock` && computerSelection == `scissors`) {
         Rounds('win')
         winnerDiv.innerText = "You win!"
-        roundResultDiv.innerText = `You played rock, computer played scissors.`
+        roundResultDiv.style.display = 'flex'
+        playerWeaponDiv.innerText = '✊'
+        compWeaponDiv.innerText = '✌️'
     } else if (playerSelection == `scissors` && computerSelection == `paper`) {
         Rounds('win')
         winnerDiv.innerText = "You win!"
-        roundResultDiv.innerText =`You played scissors, computer played paper.`
+        roundResultDiv.style.display = 'flex'
+        playerWeaponDiv.innerText = '✌️'
+        compWeaponDiv.innerText = '✋'
     } else if (playerSelection == `paper` && computerSelection == `rock`) {
         Rounds('win')
         winnerDiv.innerText = "You win!"
-        roundResultDiv.innerText =`You played paper, computer played rock.`
+        roundResultDiv.style.display = 'flex'
+        playerWeaponDiv.innerText = '✋'
+        compWeaponDiv.innerText = '✊'
     } else if (playerSelection == `scissors` && computerSelection == `rock`) {
         Rounds('lose')
         winnerDiv.innerText = "You lose!"
-        roundResultDiv.innerText =`You played scissors, computer played rock.`
+        roundResultDiv.style.display = 'flex'
+        playerWeaponDiv.innerText = '✌️'
+        compWeaponDiv.innerText = '✊'
     } else if (playerSelection == `paper` && computerSelection == `scissors`) {
         Rounds('lose')
         winnerDiv.innerText = "You lose!"
-        roundResultDiv.innerText =`You played paper, computer played scissors.`
+        roundResultDiv.style.display = 'flex'
+        playerWeaponDiv.innerText = '✋'
+        compWeaponDiv.innerText = '✌️'
     } else if (playerSelection == `rock` && computerSelection == `paper`) {
         Rounds('lose')
         winnerDiv.innerText = "You lose!"
-        roundResultDiv.innerText =`You played rock, computer played paper.`
+        roundResultDiv.style.display = 'flex'
+        playerWeaponDiv.innerText = '✊'
+        compWeaponDiv.innerText = '✋'
     }
 }
 

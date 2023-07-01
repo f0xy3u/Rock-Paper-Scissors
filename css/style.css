@@ -41,9 +41,34 @@ body {
     border: solid rgb(131, 131, 131) 2px;
     justify-content: center;
     align-items: center;
+    width: 40%;
     padding: 3px;
-    margin: 3px;
+    margin: 10px;
     font-size: 20px;
+}
+
+.roundResult {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    border-top: solid rgb(131, 131, 131) 2px;
+}
+
+.resultParent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerWeaponParent {
+    border-right: solid rgb(131, 131, 131) 1px;
+    width: 160px;
+}
+
+.compWeaponParent {
+    border-left: solid rgb(131, 131, 131) 1px;
+    width: 160px;
 }
 
 .button {
