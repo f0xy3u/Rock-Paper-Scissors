@@ -68,23 +68,12 @@ const compWeaponDiv = document.querySelector('.compWeapon')
 const roundResultDiv = document.querySelector('.roundResult')
 const gameResultDiv = document.querySelector('.gameResults')
 const gameWinnerDiv = document.querySelector('.whoWon')
+const winsDiv = document.querySelector('.wins')
 const playerWinsDiv = document.querySelector('.playerWins')
 const compWinsDiv = document.querySelector('.compWins')
 const gameRestartButton = document.querySelector('.restartButton')
 
-
 let roundNumberUpdate = 1
-function roundNumberUpdater() {
-    roundNumber.innerText = `Round ${roundNumberUpdate}/5`
-    roundNumberUpdate += 1
-}
-
-
-startGame.addEventListener('click', () => {
-    beforeGameDiv.style.display = "none"
-    gameDIV.style.display = 'flex'
-    roundNumberUpdater()
-});
 
 gameRestartButton.addEventListener('click', () => {
     gameResultDiv.style.display = "none"
@@ -95,6 +84,20 @@ gameRestartButton.addEventListener('click', () => {
     round = 0
     playerWin = 0
     computerWin = 0
+    roundNumberUpdate = 1
+    roundNumberUpdater()
+});
+
+function roundNumberUpdater() {
+    roundNumber.innerText = `Round ${roundNumberUpdate}/5`
+    roundNumberUpdate += 1
+}
+
+
+startGame.addEventListener('click', () => {
+    beforeGameDiv.style.display = "none"
+    gameDIV.style.display = 'flex'
+    roundNumberUpdater()
 });
 
 let updated = undefined
@@ -230,6 +233,7 @@ function whoWon() {
         compWinsDiv.innerText = `Computer won ${computerWin} times!`
     } else if (playerWin == computerWin) {
         gameWinnerDiv.innerText = `It was a tie`
+        winsDiv.style.display = 'none'
     }
 }}
         </script>
