@@ -17,14 +17,16 @@
     </div>
     
     <div class="game" style="display:none;">
+        <div class="roundNumber"></div>
         Choose your weapon!
         <div class="result" style="display:none;">
             <div class="winner"></div>
-            <div class="roundResult">
+            <div class="roundResult" style="display: none;">
                 <div class="playerWeaponParent resultParent">
                     You played:
                     <div class="playerWeapon"></div>
                 </div>
+                <div class="line"></div>
                 <div class="compWeaponParent resultParent">
                     Computer played:
                     <div class="compWeapon"></div>
@@ -40,9 +42,10 @@
 
     <div class="gameResults" style="display:none;">
         <div class="whoWon"></div>
-        <div class="ifWin"></div>
-        <div class="playerWins"></div>
-        <div class="compWins"></div>
+        <div class="wins">
+            <div class="playerWins winsChild"></div>
+            <div class="compWins winsChild"></div>
+        </div>
         <div class="restartDiv">
             Do you want to play another round?
             <button class="restartButton">Start another round</button>
@@ -53,6 +56,7 @@
 const beforeGameDiv = document.querySelector('.beforeGame')
 const startGame = document.querySelector('.startGame')
 const gameDIV = document.querySelector('.game')
+const roundNumber = document.querySelector('.roundNumber')
 const fullRoundResultDiv = document.querySelector('.result')
 const weaponButtonsDiv = document.querySelector('.buttons')
 const rockButton = document.querySelector('.rock') 
@@ -64,17 +68,22 @@ const compWeaponDiv = document.querySelector('.compWeapon')
 const roundResultDiv = document.querySelector('.roundResult')
 const gameResultDiv = document.querySelector('.gameResults')
 const gameWinnerDiv = document.querySelector('.whoWon')
-const ifWinDiv = document.querySelector('.ifWin')
 const playerWinsDiv = document.querySelector('.playerWins')
 const compWinsDiv = document.querySelector('.compWins')
 const gameRestartButton = document.querySelector('.restartButton')
 
 
+let roundNumberUpdate = 1
+function roundNumberUpdater() {
+    roundNumber.innerText = `Round ${roundNumberUpdate}/5`
+    roundNumberUpdate += 1
+}
 
 
 startGame.addEventListener('click', () => {
     beforeGameDiv.style.display = "none"
     gameDIV.style.display = 'flex'
+    roundNumberUpdater()
 });
 
 gameRestartButton.addEventListener('click', () => {
@@ -114,7 +123,7 @@ function getPlayerChoice() {
     return(PlayerChoice)
 }
 
-let round = 0
+var round = 0
 let playerWin = 0
 let computerWin = 0
 
@@ -127,46 +136,33 @@ function oneRound() {
 
     fullRoundResultDiv.style.display = 'flex'
 
-    if (playerSelection == computerSelection) {
-        Rounds('tie')
-        winnerDiv.innerText = "It's a Tie."
-        roundResultDiv.style.display = 'none'
-    } else if (playerSelection == `rock` && computerSelection == `scissors`) {
+    if (playerSelection == `rock` && computerSelection == `scissors`) {
         Rounds('win')
         winnerDiv.innerText = "You win!"
-        roundResultDiv.style.display = 'flex'
-        playerWeaponDiv.innerText = '✊'
-        compWeaponDiv.innerText = '✌️'
+        RoundResultShower('win', '✊', '✌️')
     } else if (playerSelection == `scissors` && computerSelection == `paper`) {
         Rounds('win')
         winnerDiv.innerText = "You win!"
-        roundResultDiv.style.display = 'flex'
-        playerWeaponDiv.innerText = '✌️'
-        compWeaponDiv.innerText = '✋'
+        RoundResultShower('win', '✌️', '✋')
     } else if (playerSelection == `paper` && computerSelection == `rock`) {
         Rounds('win')
         winnerDiv.innerText = "You win!"
-        roundResultDiv.style.display = 'flex'
-        playerWeaponDiv.innerText = '✋'
-        compWeaponDiv.innerText = '✊'
+        RoundResultShower('win', '✋', '✊')
     } else if (playerSelection == `scissors` && computerSelection == `rock`) {
         Rounds('lose')
         winnerDiv.innerText = "You lose!"
-        roundResultDiv.style.display = 'flex'
-        playerWeaponDiv.innerText = '✌️'
-        compWeaponDiv.innerText = '✊'
+        RoundResultShower('lose', '✌️', '✊')
     } else if (playerSelection == `paper` && computerSelection == `scissors`) {
         Rounds('lose')
         winnerDiv.innerText = "You lose!"
-        roundResultDiv.style.display = 'flex'
-        playerWeaponDiv.innerText = '✋'
-        compWeaponDiv.innerText = '✌️'
+        RoundResultShower('lose', '✋', '✌️')
     } else if (playerSelection == `rock` && computerSelection == `paper`) {
         Rounds('lose')
         winnerDiv.innerText = "You lose!"
-        roundResultDiv.style.display = 'flex'
-        playerWeaponDiv.innerText = '✊'
-        compWeaponDiv.innerText = '✋'
+        RoundResultShower('lose', '✊', '✋')
+    } else {
+        Rounds('tie')
+        RoundResultShower('tie', '', '')
     }
 }
 
@@ -176,10 +172,31 @@ if(updated = true) {
     RockPaperScissors()
 }
 
+function RoundResultShower(rndWnr, playCho, cmpCho) {
+    if (rndWnr == 'tie') {
+        weaponButtonsDiv.style.display = 'none'
+        fullRoundResultDiv.style.display = 'flex'
+        roundResultDiv.style.display = 'none'
+        winnerDiv.innerText = "It's a tie."
+        setTimeout(weaponButtonShower, 3000)
+    } else {
+        weaponButtonsDiv.style.display = 'none'
+        fullRoundResultDiv.style.display = 'flex'
+        roundResultDiv.style.display = 'flex'
+        playerWeaponDiv.innerText = playCho
+        compWeaponDiv.innerText = cmpCho
+        setTimeout(weaponButtonShower, 3000)
+    }
+}
+
+function weaponButtonShower() {
+    fullRoundResultDiv.style.display = 'none'
+    weaponButtonsDiv.style.display = 'block'
+    roundNumberUpdater()
+}
 
 let result = undefined
 function Rounds(result) {
-
     round += 1
 
     if(result == 'win') {
@@ -191,7 +208,7 @@ function Rounds(result) {
     } else {updated = undefined}
 
     if(round == 5) {
-        setTimeout(gameResultShower, 1000)
+        setTimeout(gameResultShower, 3000)
         weaponButtonsDiv.style.display = 'none'
     }
 
@@ -205,7 +222,6 @@ function Rounds(result) {
 function whoWon() {
     if (playerWin > computerWin) {
         gameWinnerDiv.innerText = `You won!`
-        ifWinDiv.innerText = `How could you do that? That's impossible! Lucky man...`
         playerWinsDiv.innerText = `You won ${playerWin} times!`
         compWinsDiv.innerText = `Computer won ${computerWin} times!`
     } else if (playerWin < computerWin) {
@@ -215,8 +231,7 @@ function whoWon() {
     } else if (playerWin == computerWin) {
         gameWinnerDiv.innerText = `It was a tie`
     }
-}
-}
+}}
         </script>
 </body>
 </html>
