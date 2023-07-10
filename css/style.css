@@ -4,6 +4,10 @@ body {
     height: 100vh;
 }
 
+.gameBody {
+    height: 90%;
+}
+
 .beforeGame {
     display: flex;
     min-height: 100%;
@@ -147,4 +151,18 @@ body {
     border: none;
     color: white;
     font-size: 25px;
+}
+
+.spodek {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    color: rgb(150, 150, 150);
+}
+
+.spodek a {
+    color: rgb(150, 150, 150);
+    font-size: 10px;
 }

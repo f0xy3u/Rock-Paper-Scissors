@@ -8,48 +8,54 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="beforeGame">
-        <p>You wanna play rock paper scissors?</p>
-        <p>You really think you are gonna win?</p>
-        <p>Let's see.....</p>
+    <div class="gameBody">
+        <div class="beforeGame">
+            <p>You wanna play rock paper scissors?</p>
+            <p>You really think you are gonna win?</p>
+            <p>Let's see.....</p>
 
-        <button class="startGame">Start the game</button>
-    </div>
+            <button class="startGame">Start the game</button>
+        </div>
     
-    <div class="game" style="display:none;">
-        <div class="roundNumber"></div>
-        Choose your weapon!
-        <div class="result" style="display:none;">
-            <div class="winner"></div>
-            <div class="roundResult" style="display: none;">
-                <div class="playerWeaponParent resultParent">
-                    You played:
-                    <div class="playerWeapon"></div>
-                </div>
-                <div class="line"></div>
-                <div class="compWeaponParent resultParent">
-                    Computer played:
-                    <div class="compWeapon"></div>
+        <div class="game" style="display:none;">
+            <div class="roundNumber"></div>
+            Choose your weapon!
+            <div class="result" style="display:none;">
+                <div class="winner"></div>
+                <div class="roundResult" style="display: none;">
+                    <div class="playerWeaponParent resultParent">
+                        You played:
+                        <div class="playerWeapon"></div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="compWeaponParent resultParent">
+                        Computer played:
+                        <div class="compWeapon"></div>
+                    </div>
                 </div>
             </div>
+            <div class="buttons">
+                <button class="rock button">✊</button>
+                <button class="paper button">✋</button>
+                <button class="scissors button">✌️</button>
+            </div>
         </div>
-        <div class="buttons">
-            <button class="rock button">✊</button>
-            <button class="paper button">✋</button>
-            <button class="scissors button">✌️</button>
+
+        <div class="gameResults" style="display:none;">
+            <div class="whoWon"></div>
+            <div class="wins">
+                <div class="playerWins winsChild"></div>
+                <div class="compWins winsChild"></div>
+            </div>
+            <div class="restartDiv">
+                Do you want to play another round?
+                <button class="restartButton">Start another round</button>
+            </div>
         </div>
     </div>
-
-    <div class="gameResults" style="display:none;">
-        <div class="whoWon"></div>
-        <div class="wins">
-            <div class="playerWins winsChild"></div>
-            <div class="compWins winsChild"></div>
-        </div>
-        <div class="restartDiv">
-            Do you want to play another round?
-            <button class="restartButton">Start another round</button>
-        </div>
+    <div class="spodek">
+        ©f0xy3u | Build with The Odin Project
+        <a href="https://github.com/f0xy3u/Rock-Paper-Scissors" class="repos">Github repository for this project</a>
     </div>
 
     <script>
