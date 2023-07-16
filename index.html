@@ -85,7 +85,7 @@ gameRestartButton.addEventListener('click', () => {
     gameResultDiv.style.display = "none"
     gameDIV.style.display = 'flex'
     fullRoundResultDiv.style.display = 'none'
-    weaponButtonsDiv.style.display = 'block'
+    weaponButtonsDiv.style.display = 'flex'
 
     round = 0
     playerWin = 0
@@ -200,7 +200,7 @@ function RoundResultShower(rndWnr, playCho, cmpCho) {
 
 function weaponButtonShower() {
     fullRoundResultDiv.style.display = 'none'
-    weaponButtonsDiv.style.display = 'block'
+    weaponButtonsDiv.style.display = 'flex'
     roundNumberUpdater()
 }
 

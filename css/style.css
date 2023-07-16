@@ -24,7 +24,7 @@ body {
 
 .startGame {
     height: 200px;
-    width: 400px;
+    width: 95%;
     background-color: #545A4D;
     color: white;
     border: solid;
@@ -135,7 +135,7 @@ body {
 .wins {
     display: flex;
     border-top: solid #C3B59C 2px;
-    width: 80%;
+    width: 90%;
 }
 
 .winsChild {
