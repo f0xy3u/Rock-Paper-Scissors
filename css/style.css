@@ -2,6 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #2E3D34;
     height: 100vh;
+    text-align: center;
 }
 
 .gameBody {
@@ -57,11 +58,25 @@ body {
     border: solid #C3B59C 2px;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 60%;
     padding: 3px;
     margin: 10px;
     font-size: 20px;
 }
+
+@media screen and (max-width: 40.5em) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weaponButton {
+        margin: 5px;
+    }
+  }
+
 
 .roundResult {
     display: flex;
