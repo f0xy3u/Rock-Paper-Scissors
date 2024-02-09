@@ -11,7 +11,7 @@
     <div class="gameBody">
         <div class="beforeGame">
             <p>You wanna play rock paper scissors?</p>
-            <p>You really think you are gonna win?</p>
+            <p>You really think you're gonna win?</p>
             <p>Let's see.....</p>
 
             <button class="startGame">Start the game</button>
@@ -185,12 +185,14 @@ function RoundResultShower(rndWnr, playCho, cmpCho) {
     if (rndWnr == 'tie') {
         weaponButtonsDiv.style.display = 'none'
         fullRoundResultDiv.style.display = 'flex'
+        fullRoundResultDiv.style.width = 'auto'
         roundResultDiv.style.display = 'none'
         winnerDiv.innerText = "It's a tie."
         setTimeout(weaponButtonShower, 3000)
     } else {
         weaponButtonsDiv.style.display = 'none'
         fullRoundResultDiv.style.display = 'flex'
+        fullRoundResultDiv.style.width = '60%'
         roundResultDiv.style.display = 'flex'
         playerWeaponDiv.innerText = playCho
         compWeaponDiv.innerText = cmpCho
@@ -200,6 +202,7 @@ function RoundResultShower(rndWnr, playCho, cmpCho) {
 
 function weaponButtonShower() {
     fullRoundResultDiv.style.display = 'none'
+    fullRoundResultDiv.style.width = ''
     weaponButtonsDiv.style.display = 'flex'
     roundNumberUpdater()
 }

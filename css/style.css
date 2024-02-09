@@ -58,13 +58,12 @@ body {
     border: solid #C3B59C 2px;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    padding: 3px;
-    margin: 10px;
+    margin-top: 10px;
     font-size: 20px;
 }
 
 .buttons {
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -172,6 +171,10 @@ body {
     border: none;
     color: white;
     font-size: 25px;
+}
+
+.restartButton:hover {
+    background-color: rgb(30, 30, 30);
 }
 
 .spodek {
